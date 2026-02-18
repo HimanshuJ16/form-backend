@@ -38,7 +38,7 @@ export default function Dashboard() {
   }
 
   const copyToClipboard = (key: string) => {
-    const endpoint = `${window.location.origin}/f/${key}`
+    const endpoint = `${window.location.origin}/api/f/${key}`
     navigator.clipboard.writeText(endpoint)
     setCopied(key)
     setTimeout(() => setCopied(null), 2000)
@@ -102,7 +102,7 @@ export default function Dashboard() {
                           {form._count?.submissions || 0} submission{form._count?.submissions !== 1 ? "s" : ""}
                         </p>
                         <div className="flex items-center gap-2 flex-wrap">
-                          <code className="bg-muted px-3 py-1 rounded text-sm font-mono">/f/{form.key}</code>
+                          <code className="bg-muted px-3 py-1 rounded text-sm font-mono">/api/f/{form.key}</code>
                           <button
                             onClick={() => copyToClipboard(form.key)}
                             className="text-xs text-primary hover:underline flex items-center gap-1"
